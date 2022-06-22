@@ -1,0 +1,13 @@
+{
+  "name": "intern-backend",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/nenne/intern-backend.git",
+  "author": "一般入試 <umi_koneko@outlook.jp>",
+  "license": "MIT",
+  "devDependencies": {
+    "prisma": "^3.15.2",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^4.7.4"
+  }
+}
