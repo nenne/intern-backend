@@ -17,6 +17,9 @@ datasource db {
 model User {
   id    Int     @id @default(autoincrement())
   name  String?
-  password String?
+  password String
 }
 
+//$npx prisma db push のときにエラーでる
+//Error: Get config: Schema Parsing P1012
+//error: Environment variable not found: ./dev.db.
