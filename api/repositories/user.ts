@@ -1,19 +1,30 @@
-import { PrismaClient } from "@prisma/client";
-import { Router } from "express";
+import {PrismaClient} from '@prisma/client'
 
-const prisma = new PrismaClient();
+const prisma = new PrismaClient()
 
-const router = Router();
-
-router.get("/1", (req, res, next) => {
-  res.json("number of user is 1");
-});
-
-router.get("/2", (req, res, next) => {
-  res.json("number of user is 2");
-});
-
-export default router;
-
-//createuser signupに使う
-//finduser loginに使う
+async function CreateUser() {
+    const result = await prisma.user.create({
+      data: {
+        name: String
+      }
+    })
+    console.log(result)
+  }
+async function FindUser() {
+    const result = await prisma.user.findMany({
+      select:{
+        id : true,
+        name :true
+      }
+    });
+    console.log(result);
+}
+  
+  FindUser()
+    .catch((e) => console.error(e))
+    .finally(async () => await prisma.$disconnect());
+  
+  CreateUser()
+    .catch((e) => console.error(e))
+    .finally(async () => await prisma.$disconnect())
+     
